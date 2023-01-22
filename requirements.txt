@@ -1,0 +1,11 @@
+Flask>=2
+werkzeug
+
+flask-session>=0.3.2,<0.5
+requests>=2,<3
+msal>=1.7,<2
+
+python-dotenv
+psycopg2-binary
+Flask-SQLAlchemy
+pytest

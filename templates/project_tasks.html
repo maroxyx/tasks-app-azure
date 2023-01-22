@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% from "macros.html" import task_actions, task_status_actions, basic_create_form with context %}
+{% block content %}
+    <h1>{% block title %} Add a new task {% endblock %}</h1>
+    {{ basic_create_form(task,"Task") }}
+
+    <div class="tasks-container">
+        <div class="tasks">
+            <div class="status-header">TASKS TO DO</div>
+            <div>
+                {% for task_element in todo_tasks %}
+                    <div class="task-element todo">
+                        <div class="basic-flex">
+                            <div style="flex-grow:1;">
+                                <strong style="word-break: break-word;">{{ task_element.name }}</strong>
+                                <div class="basic-flex">
+                                    <div>Created:</div>
+                                    <div>{{ task_element.created_at.strftime("%m/%d/%Y, %H:%M:%S") }}</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                {{ task_actions(task_element) }}
+                                {{ task_status_actions(task_element,['inprogress','done']) }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="tasks">
+            <div class="status-header">TASKS IN PROGRESS</div>
+            <div>
+                {% for task_element in inprogress_tasks %}
+                    <div class="task-element inprogress">
+                        <div class="basic-flex">
+                            <div style="flex-grow:1;">
+                                <strong style="word-break: break-word;">{{ task_element.name }}</strong>
+                                <div class="basic-flex">
+                                    <div>Created:</div>
+                                    <div>{{ task_element.created_at.strftime("%m/%d/%Y, %H:%M:%S") }}</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                {{ task_actions(task_element) }}
+                                {{ task_status_actions(task_element,['todo','done']) }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tasks">
+            <div class="status-header">TASKS DONE</div>
+            <div>
+                {% for task_element in done_tasks %}
+                    <div class="task-element done">
+                        <div class="basic-flex">
+                            <div style="flex-grow:1;">
+                                <strong style="word-break: break-word;">{{ task_element.name }}</strong>
+                                <div class="basic-flex">
+                                    <div>Created:</div>
+                                    <div>{{ task_element.created_at.strftime("%m/%d/%Y, %H:%M:%S") }}</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                {{ task_actions(task_element) }}
+                                {{ task_status_actions(task_element,['inprogress','todo']) }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,100 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-projects {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+.table-projects td, .table-projects th {
+    border: 1px solid #ddd;
+    padding: 16px 8px;
+}
+
+.table-projects tr:nth-child(even){background-color: #f2f2f2;}
+
+.table-projects tr:hover {background-color: #ddd;}
+
+.table-projects th {
+    padding: 12px 0 12px 12px;
+    text-align: left;
+    background-color: #ad6512;
+    color: white;
+}
+
+
+.status-header{
+    font-size:20px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1.2px;
+    margin:20px 0;
+}
+.tasks-container{
+    margin:10px 0;
+    justify-content: space-around;
+
+    display: flex;
+}
+.tasks{
+    width: 420px;
+    padding:10px 5px
+}
+
+.task-element{
+    border-radius:20px;
+    margin:10px 5px;
+    padding: 5px 10px;
+}
+.todo{
+    /* background-color: rgba(238, 238, 238, 0.636); */
+    background-color: rgba(228, 210, 210, 0.81);
+}
+.inprogress{
+    background-color: rgba(126, 134, 151, 0.636);
+}
+.done{
+    background-color: rgba(106, 219, 94, 0.636);
+}
+
+.basic-flex{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:16px;
+}
+
+.button-link {
+    color: white;
+    padding:8px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    letter-spacing: 1.2px;
+    margin-left: 10px;
+}
+.delete{
+    background-color: rgb(227, 50, 50);
+
+}
+.details {
+    background-color: rgb(55, 81, 227);
+  }
+.option {
+    background-color: #AFD8DE;
+    color:black;
+    font-size:14px;
+  }
+
+.button-create {
+    background-color: #53c957;
+    color: white;
+    padding:8px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    border:none;
+}

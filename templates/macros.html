@@ -1,0 +1,79 @@
+{% macro task_actions(task_element) %}
+    <div style="text-align: center;">
+        <div class="basic-flex">
+            <a class="button-link delete"
+            href="/task/delete/{{ task_element.id }}">
+                Delete
+            </a>
+            <a class="button-link details"
+            href="/task/details/{{ task_element.id }}">
+                Details
+            </a>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro task_status_actions(task_element,move_statuses) %}
+    <div style="text-align: center;">
+        <strong>Move to:</strong>
+        <div class="basic-flex">
+            {% if 'todo' in move_statuses %}
+                <a class="button-link option"
+                href="/task/update/{{ task_element.id }}/todo">
+                    TODO
+                </a> 
+            {% endif %}
+            {% if 'inprogress' in move_statuses %}
+                <a class="button-link option"
+                href="/task/update/{{ task_element.id }}/inprogress">
+                    IN PROGRESS
+                </a>
+            {% endif %}
+            {% if 'done' in move_statuses %}
+                <a class="button-link option"
+                href="/task/update/{{ task_element.id }}/done">
+                    DONE
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro basic_create_form(data,forData,withSelect=false) %}
+    <form method="post">
+        <label for="name">Name</label>
+        <br>
+        <input type="text" name="name"
+            style="width:450px;font-size: 16px;padding:5px"
+            placeholder="{{forData}} name"
+            required
+            value="{{ data.name }}"></input>
+        <br>
+
+        <label for="description">{{forData}} description</label>
+        <br>
+        <textarea name="description"
+                placeholder="{{forData}} description"
+                rows="15"
+                required
+                style="font-size: 16px;"
+                cols="60"
+                >{{ data.description }}</textarea>
+        <br>
+        {% if withSelect %}
+            <select name="status" id="status">
+                {% for task_status in ['TO_DO','INPROGRESS','DONE'] %}
+                    {% if task.status == task_status %}
+                        <option value="{{task_status}}" selected>{{task_status}}</option>
+                    {% else %}
+                        <option value="{{task_status}}">{{task_status}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        {% endif %}
+        <div>
+            <button class="button-create" type="submit">Create</button>
+        </div>
+    </form>
+
+{% endmacro %}

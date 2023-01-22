@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} </title>
+    <style>
+        nav a {
+            color: #d64161;
+            font-size: 24px;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+    </style>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h2>Welcome {{ user.get("name") }}!</h2>
+    <nav>
+        <a href="/projects">Home</a>
+        <a href="/create">Add new project</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
