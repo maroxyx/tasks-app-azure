@@ -15,6 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      env:
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
       - uses: actions/checkout@v2
 
       - name: Set up Python version
