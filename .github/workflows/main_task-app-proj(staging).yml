@@ -10,6 +10,11 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,6 +36,8 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      - name: Run tests
+        run: python -m pytest
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
