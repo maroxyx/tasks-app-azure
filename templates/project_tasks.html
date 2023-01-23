@@ -2,7 +2,7 @@
 {% from "macros.html" import task_actions, task_status_actions, basic_create_form with context %}
 {% block content %}
     <h1>{% block title %} Add a new task {% endblock %}</h1>
-    {{ basic_create_form(task,"Task") }}
+    {{ basic_create_form(task,"Task","Create") }}
 
     <div class="tasks-container">
         <div class="tasks">

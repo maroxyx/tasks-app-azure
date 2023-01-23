@@ -7,7 +7,7 @@ def test_home_login():
 
     assert response.status_code==200
 
-def test_create_project():
+def test_projects():
     with app.test_client() as c:
         with c.session_transaction() as session:
             session["user"] ={"name":"admin-test","oid":"admin-test123"}

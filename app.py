@@ -112,7 +112,7 @@ def create_project():
     user = session.get("user")
     user_id = user.get("oid")
     if request.method == 'GET':
-        return render_template('project_create.html',project={},user=user)
+        return render_template('project_create.html',project={},user=user,title="Add a new project")
     if request.method == 'POST':
         
         name = request.form.get('name')
@@ -149,7 +149,7 @@ def update_project(id):
             return render_template('problem.html')
         
         if request.method == 'GET':
-            return render_template('project_create.html',project=project,user=user)
+            return render_template('project_create.html',project=project,user=user,title="Update project")
         if request.method == 'POST':
             name = request.form.get('name')
             description = request.form.get('description')

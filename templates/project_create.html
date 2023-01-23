@@ -2,7 +2,7 @@
 {% from "macros.html" import basic_create_form with context %}
 
 {% block content %}
-    <h1>{% block title %} Add a new project {% endblock %}</h1>
-    {{ basic_create_form(project,"Project") }}
+    <h1>{% block title %} {{title}} {% endblock %}</h1>
+    {{ basic_create_form(project,"Project","Submit") }}
 
 {% endblock %}

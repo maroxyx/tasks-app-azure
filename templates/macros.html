@@ -39,7 +39,7 @@
     </div>
 {% endmacro %}
 
-{% macro basic_create_form(data,forData,withSelect=false) %}
+{% macro basic_create_form(data,forData,buttonLabel,withSelect=false) %}
     <form method="post">
         <label for="name">Name</label>
         <br>
@@ -72,7 +72,7 @@
             </select>
         {% endif %}
         <div>
-            <button class="button-create" type="submit">Create</button>
+            <button class="button-create" type="submit">{{buttonLabel}}</button>
         </div>
     </form>
 

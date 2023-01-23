@@ -3,5 +3,5 @@
 
 {% block content %}
     <h1>{% block title %} Task in project: {{ project.name}} {% endblock %}</h1>
-    {{ basic_create_form(task,"Task",withSelect=true) }}
+    {{ basic_create_form(task,"Task","Update",withSelect=true) }}
 {% endblock %}
